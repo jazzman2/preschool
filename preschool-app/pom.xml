@@ -12,6 +12,7 @@
 	<description>Application of Preschool Simple CMS</description>
 	<packaging>war</packaging>
 
+<!-- fix -->
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
