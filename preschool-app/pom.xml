@@ -8,4 +8,12 @@
   <artifactId>preschool-app</artifactId>
   <name>preschool-app</name>
   <description>Application of Preschool Simple CMS</description>
+  <packaging>war</packaging>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter-web</artifactId>
+  	</dependency>
+  </dependencies>
 </project>
