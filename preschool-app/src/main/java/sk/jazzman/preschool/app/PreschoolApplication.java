@@ -15,6 +15,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
+import sk.jazzman.preschool.gui.page.HomePage;
+
 /**
  * Application
  * 
@@ -42,8 +44,7 @@ public class PreschoolApplication extends WebApplication {
 
 	@Override
 	public Class<? extends Page> getHomePage() {
-
-		return null;
+		return HomePage.class;
 	}
 
 	@Override
@@ -60,6 +61,6 @@ public class PreschoolApplication extends WebApplication {
 	 * Mount pages
 	 */
 	protected void mountPages() {
-
+		// mountPackage("/", pageClass)
 	}
 }
