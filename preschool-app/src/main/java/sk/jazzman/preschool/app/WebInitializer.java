@@ -24,9 +24,9 @@ public class WebInitializer implements ServletContextInitializer {
 		FilterRegistration filter = servletContext.addFilter("wicket-filter", WicketFilter.class);
 		filter.setInitParameter(WicketFilter.APP_FACT_PARAM, SpringWebApplicationFactory.class.getName());
 
-		// filter.setInitParameter("applicationBean",
+		filter.setInitParameter("applicationBean", "preschool");
+		// filter.setInitParameter("applicationClassName",
 		// "sk.jazzman.preschool.app.PreschoolApplication");
-		filter.setInitParameter("applicationClassName", "sk.jazzman.preschool.app.PreschoolApplication");
 		filter.setInitParameter(WicketFilter.FILTER_MAPPING_PARAM, "/*");
 		filter.addMappingForUrlPatterns(null, false, "/*");
 	}

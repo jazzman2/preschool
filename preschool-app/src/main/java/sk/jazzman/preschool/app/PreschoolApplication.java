@@ -16,6 +16,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 import sk.jazzman.preschool.gui.page.HomePage;
+import de.agilecoders.wicket.core.Bootstrap;
 
 /**
  * Application
@@ -23,7 +24,7 @@ import sk.jazzman.preschool.gui.page.HomePage;
  * @author jano
  *
  */
-@Component
+@Component("preschool")
 @EnableAutoConfiguration
 @ComponentScan
 public class PreschoolApplication extends WebApplication {
@@ -52,15 +53,31 @@ public class PreschoolApplication extends WebApplication {
 		super.init();
 		log.info("Initialize application");
 
-		getComponentInstantiationListeners().add(new SpringComponentInjector(this, applicationContext));
+		initializeListeners();
 		mountPages();
+		initializeBootstrap();
+
 		log.info("Initialization done");
+	}
+
+	/**
+	 * Initialize listeners
+	 */
+	protected void initializeListeners() {
+		getComponentInstantiationListeners().add(new SpringComponentInjector(this, applicationContext));
 	}
 
 	/**
 	 * Mount pages
 	 */
 	protected void mountPages() {
-		// mountPackage("/", pageClass)
+		mountPackage("homepage", HomePage.class);
+	}
+
+	protected void initializeBootstrap() {
+		Bootstrap.install(this);
+		// BootstrapSettings setting = new BootstrapSettings();
+		//
+		// Bootstrap.install(this, setting);
 	}
 }
